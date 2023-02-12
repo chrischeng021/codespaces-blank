@@ -45,7 +45,7 @@ public class ArrayUtils {
                 left = i + 1;
                 right = numbers.length - 1;
             }
-            targetIndex = main.java.com.demo.algo.BinarySearch.search(numbers, target - numbers[i], left, right);
+            targetIndex = com.demo.algo.BinarySearch.search(numbers, target - numbers[i], left, right);
             if(targetIndex == -1) {
                 continue;
             }

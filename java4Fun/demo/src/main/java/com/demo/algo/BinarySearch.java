@@ -1,4 +1,4 @@
-package main.java.com.demo.algo;
+package com.demo.algo;
 
 import java.sql.Array;
 import java.util.ArrayList;

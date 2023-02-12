@@ -1,4 +1,4 @@
-package test.java.com.demo.algo;
+package com.demo.algo;
 
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertEquals;
@@ -6,7 +6,7 @@ import static org.junit.Assert.assertEquals;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 
-import main.java.com.demo.algo.BinarySearch;
+import com.demo.algo.BinarySearch;
 
 @Slf4j
 public class BinarySearchTest {

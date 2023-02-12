@@ -1,7 +1,5 @@
 package com.demo.algo;
 
-import java.util.Arrays;
-
 public class StringUtils {
     private static char[] reverseString(char[] s) {
         int length = s.length;
