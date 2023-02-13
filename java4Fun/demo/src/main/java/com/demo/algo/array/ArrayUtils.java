@@ -1,4 +1,5 @@
-package com.demo.algo;
+package com.demo.algo.array;
+import com.demo.algo.search.BinarySearch;
 
 public class ArrayUtils {
     private static <T> void swap(T[] arr, int l, int r) {
@@ -45,7 +46,7 @@ public class ArrayUtils {
                 left = i + 1;
                 right = numbers.length - 1;
             }
-            targetIndex = com.demo.algo.BinarySearch.search(numbers, target - numbers[i], left, right);
+            targetIndex = BinarySearch.search(numbers, target - numbers[i], left, right);
             if(targetIndex == -1) {
                 continue;
             }
@@ -54,5 +55,13 @@ public class ArrayUtils {
             }
         }
         return new int[]{};
+    }
+
+    // https://leetcode.cn/problems/merge-sorted-array
+    // nums1 的初始长度为 m + n，其中前 m 个元素表示应合并的元素，后 n 个元素为 0 ，应忽略。nums2 的长度为 n 。
+    public void merge(int[] nums1, int m, int[] nums2, int n) {
+        int index1 = m - 1;
+        int index2 = n - 1;
+        int index = m + n - 1;
     }
 }

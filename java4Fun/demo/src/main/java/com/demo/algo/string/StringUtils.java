@@ -1,4 +1,4 @@
-package com.demo.algo;
+package com.demo.algo.string;
 
 public class StringUtils {
     private static char[] reverseString(char[] s) {

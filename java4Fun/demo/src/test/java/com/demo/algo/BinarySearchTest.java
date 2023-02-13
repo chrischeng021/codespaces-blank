@@ -6,7 +6,7 @@ import static org.junit.Assert.assertEquals;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 
-import com.demo.algo.BinarySearch;
+import com.demo.algo.search.BinarySearch;
 
 @Slf4j
 public class BinarySearchTest {
