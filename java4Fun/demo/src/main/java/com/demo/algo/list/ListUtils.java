@@ -18,7 +18,7 @@ public class ListUtils {
     }
 
     public static ListNode middleNode(ListNode head) {
-        if(head == null || head.getNext() == null) {
+        if(head == null || head.next == null) {
             return head;
         }
 
@@ -26,8 +26,32 @@ public class ListUtils {
         int step = length % 2 == 0 ? length / 2 : (length - 1) / 2;
         ListNode cursor = head;
         for(int i = 0; i <step; i++) {
-            cursor = cursor.getNext();
+            cursor = cursor.next;
         }
         return cursor;
+    }
+
+    // https://leetcode.cn/problems/remove-nth-node-from-end-of-list
+    public ListNode removeNthFromEnd(ListNode head, int n) {
+        if(head == null) {
+            return head;
+        }
+        if(head.next == null) {
+            return null;
+        }
+        int length = getListLength(head);
+        int step = length - 1;
+        if(step == 0) {
+            return head.next;
+        }
+        else {
+            step--;
+            ListNode cursor = head;
+            for(int i = 0; i < step; i++) {
+                cursor = cursor.next;
+            }
+            cursor.next = cursor.next.next;
+            return head;
+        }
     }
 }
