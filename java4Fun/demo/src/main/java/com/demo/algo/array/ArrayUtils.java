@@ -80,4 +80,10 @@ public class ArrayUtils {
         }
         return new int[]{pairCount, nums.length - pairCount * 2};
     }
+
+    // https://leetcode.cn/problems/remove-duplicates-from-sorted-array/
+    // 删除有序数组中的重复项，原地左移
+    public int removeDuplicates(int[] nums) {
+
+    }
 }
