@@ -17,6 +17,7 @@ public class ListUtils {
         return length;
     }
 
+    // 寻找链表的中间节点
     public static ListNode middleNode(ListNode head) {
         if(head == null || head.next == null) {
             return head;

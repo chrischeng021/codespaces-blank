@@ -97,4 +97,64 @@ public class BinarySearch {
         }
         return -1;
     }
+
+    // https://leetcode.cn/problems/first-bad-version
+    public int firstBadVersion(int n) {
+        if(n == 1) {
+            return n;
+        }
+        return firstBadVersion(1, n);
+    }
+    private int firstBadVersion(int left, int right) {
+        if(isBadVersion(left)) {
+            return left;
+        }
+        if(isBadVersion(right) && !isBadVersion(right -1)) {
+            return right;
+        }
+        int mid = left + ((right - left + 1) >> 1);
+        if(isBadVersion(mid)) {
+            return firstBadVersion(left, mid);
+        }
+        else {
+            return firstBadVersion(mid + 1, right);
+        }
+    }
+
+    // This function is a LeetCode build-in function.
+    private boolean isBadVersion(int n) { return false; }
+
+    // https://leetcode.cn/problems/search-insert-position
+    // 思路： 找到第一个比 target 小的元素，返回其 index + 1的位置
+    public static int searchInsert(int[] nums, int target) {
+        int length = nums.length;
+        if(nums[0] >= target) {
+            return 0;
+        }
+        if(nums[length - 1] < target) {
+            return length;
+        }
+        int index = searchFirstLessElement(nums, target, 0, length - 1);
+        return index + 1;
+    }
+
+    private static int searchFirstLessElement(int[] nums, int target, int left, int right) {
+        if(nums[right] < target) {
+            return right;
+        }
+        if(left >= right) {
+            return left;
+        }
+        if((right - left) == 1) {
+            return nums[left] < target ? (nums[right] >= target ? left : right) : left - 1;
+        }
+
+        int mid = (left + right) / 2;
+        if(nums[mid] >= target) {
+            return searchFirstLessElement(nums, target, left, mid - 1);
+        }
+        else {
+            return searchFirstLessElement(nums, target, mid, right);
+        }
+    }
 }

@@ -1,6 +1,9 @@
-package com.demo.algo;
+package test.java.com.demo.algo;
 
 import static org.junit.Assert.assertTrue;
+
+import java.beans.Transient;
+
 import static org.junit.Assert.assertEquals;
 
 import lombok.extern.slf4j.Slf4j;
@@ -39,5 +42,12 @@ public class BinarySearchTest {
     public void testSortSquares() {
         int[] nums = {-4,-1,0,0,0};
         log.info("Result: {}.", BinarySearch.sortedSquares(nums));
+    }
+
+    @Test
+    public void testsearchInsert() {
+        int[] nums = {1,3,5,6};
+        int target = 7;
+        log.info("Result: {}.", BinarySearch.searchInsert(nums, target));
     }
 }
