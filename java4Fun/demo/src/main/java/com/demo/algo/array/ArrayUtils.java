@@ -64,4 +64,20 @@ public class ArrayUtils {
         int index2 = n - 1;
         int index = m + n - 1;
     }
+
+    // https://leetcode.cn/problems/maximum-number-of-pairs-in-array/
+    public int[] numberOfPairs(int[] nums) {
+        Set<Integer> set = new HashSet<>();
+        int pairCount = 0;
+        for(int i : nums) {
+            if(set.contains(i)) {
+                set.remove(i);
+                pairCount++;
+            }
+            else {
+                set.add(i);
+            }
+        }
+        return new int[]{pairCount, nums.length - pairCount * 2};
+    }
 }
