@@ -1,6 +1,11 @@
 package com.demo.algo.array;
 import com.demo.algo.search.BinarySearch;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 public class ArrayUtils {
     private static <T> void swap(T[] arr, int l, int r) {
         T left = arr[l];
@@ -84,6 +89,26 @@ public class ArrayUtils {
     // https://leetcode.cn/problems/remove-duplicates-from-sorted-array/
     // 删除有序数组中的重复项，原地左移
     public int removeDuplicates(int[] nums) {
+        return 0;
+    }
 
+    // https://leetcode.cn/problems/pascals-triangle
+    // 生成杨辉三角形
+    public static List<List<Integer>> generate(int numRows) {
+        List<List<Integer>> res = new ArrayList<>();
+
+        for(int i = 0; i < numRows; i++) {
+            List<Integer> list = new ArrayList<>();
+            for(int j = 0; j <= i; j++) {
+                if(i == 0 || j == 0 || j == i) {
+                    list.add(1);
+                }
+                else{
+                    list.add(res.get(i - 1).get(j - 1) + res.get(i - 1).get(j));
+                }
+            }
+            res.add(list);
+        }
+        return res;
     }
 }

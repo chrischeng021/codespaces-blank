@@ -1,4 +1,4 @@
-package test.java.com.demo.algo;
+package com.demo.algo;
 
 import static org.junit.Assert.assertTrue;
 
@@ -45,7 +45,7 @@ public class BinarySearchTest {
     }
 
     @Test
-    public void testsearchInsert() {
+    public void testSearchInsert() {
         int[] nums = {1,3,5,6};
         int target = 7;
         log.info("Result: {}.", BinarySearch.searchInsert(nums, target));

@@ -19,4 +19,9 @@ public class ArrayTest {
     public void testTwoSum() {
         log.info("Result: {}.", ArrayUtils.twoSum(new int[] {1,3,4,4}, 8));
     }
+
+    @Test
+    public void testGenerateTriangle() {
+        log.info("Result: {}.",ArrayUtils.generate(5));
+    }
 }
