@@ -78,4 +78,47 @@ public class ListUtils {
         node2.next = node1;
         return node2;
     }
+
+    // https://leetcode.cn/problems/merge-two-sorted-lists
+    // 合并两个有序链表
+    public static ListNode mergeTwoLists(final ListNode list1, final ListNode list2) {
+        if(list1 == null) {
+            return list2;
+        }
+
+        if(list2 == null) {
+            return list1;
+        }
+
+        ListNode cursor1 = list1;
+        ListNode cursor2 = list2;
+
+        ListNode cursor = new ListNode(0);
+
+        while(cursor1 != null && cursor2 != null) {
+            if(cursor1.val >= cursor2.val) {
+                cursor.next = cursor2;
+                cursor2 = cursor2.next;
+            }
+            else {
+                cursor.next = cursor1;
+                cursor1 = cursor1.next;
+            }
+            cursor = cursor.next;
+        }
+
+        while(cursor1 != null) {
+            cursor.next = cursor1;
+            cursor1 = cursor1.next;
+            cursor = cursor.next;
+        }
+
+        while(cursor2 != null) {
+            cursor.next = cursor2;
+            cursor2 = cursor2.next;
+            cursor = cursor.next;
+        }
+
+        return list1.val >= list2.val ? list2 : list1;
+    }
 }
