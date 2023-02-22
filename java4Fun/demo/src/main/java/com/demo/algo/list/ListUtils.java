@@ -121,4 +121,18 @@ public class ListUtils {
 
         return list1.val >= list2.val ? list2 : list1;
     }
+
+    //https://leetcode.cn/problems/convert-binary-number-in-a-linked-list-to-intege
+    public static int getDecimalValue(ListNode head) {
+        int length = getListLength(head);
+        int res = 0;
+        while(head != null) {
+            if(head.val == 1) {
+                res += (head.val << (length - 1));
+            }
+            length--;
+            head = head.next;
+        }
+        return res;
+    }
 }

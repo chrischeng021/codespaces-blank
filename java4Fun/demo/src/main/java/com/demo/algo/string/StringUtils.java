@@ -1,7 +1,6 @@
 package com.demo.algo.string;
 
 import com.google.common.collect.ImmutableMap;
-import org.checkerframework.checker.units.qual.A;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -191,5 +190,88 @@ public class StringUtils {
             }
         }
         return map;
+    }
+
+    // https://leetcode.cn/problems/decrypt-string-from-alphabet-to-integer-mapping
+    public static String freqAlphabets(String s) {
+        if(s == null || s.length() == 0) {
+            return s;
+        }
+        StringBuilder sb = new StringBuilder();
+        for(int i = 0; i < s.length(); i++) {
+            if( (i + 2) < s.length() && s.charAt(i + 2) == '#') {
+                sb.append((char)('a' + (Integer.valueOf(s.substring(i, i + 2)) - 1)));
+                i += 2;
+            }
+            else {
+                sb.append((char)('a' + (Integer.valueOf(String.valueOf(s.charAt(i))) - 1)));
+            }
+        }
+        return sb.toString();
+    }
+
+    // https://leetcode.cn/problems/to-lower-case
+    public static String toLowerCase(String s) {
+        if(s == null || s.length() == 0) {
+            return s;
+        }
+
+        char[] arr = s.toCharArray();
+
+        for(int i = 0; i < arr.length; i++) {
+            if(arr[i] >= 'A' && arr[i] <= 'Z') {
+                arr[i] = (char)(arr[i] - 'A' + 'a');
+            }
+        }
+        return String.valueOf(arr);
+    }
+
+    // https://leetcode.cn/problems/verifying-an-alien-dictionary
+    public static boolean isAlienSorted(String[] words, String order) {
+        Map<Character, Integer> seqMap = new HashMap<>();
+        for(int i = 0; i < order.length(); i++) {
+            seqMap.put(order.charAt(i), i);
+        }
+        for(int i = 0; i < words.length - 1; i++) {
+            if(compareWordInDicSeq(words[i], words[i + 1], seqMap) == -1) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    // @RequestParam seqMap: dictionary sequence'
+    // @Response:
+    // 1: word1 <= word2
+    // -1: word1 > word2
+    public static int compareWordInDicSeq(String word1, String word2, Map<Character, Integer> seqMap) {
+        int minLength = Math.min(word1.length(), word2.length());
+        for(int i = 0; i < minLength; i++) {
+            if(seqMap.get(word1.charAt(i)) > seqMap.get(word2.charAt(i))) {
+                return -1;
+            }
+            else if(seqMap.get(word1.charAt(i)) < seqMap.get(word2.charAt(i))) {
+                return 1;
+            }
+        }
+        return word1.length() <= word2.length() ? 1 : -1;
+    }
+
+    // https://leetcode.cn/problems/find-the-difference/
+    public static char findTheDifference(String s, String t) {
+        int[] arr = new int[26];
+        for(int i = 0; i < s.length(); i++) {
+            arr[s.charAt(i) - 'a']++;
+            arr[t.charAt(i) - 'a']--;
+        }
+        arr[t.charAt(t.length() - 1) - 'a']--;
+
+        for(int i = 0; i < 26; i++) {
+            if(arr[i] != 0) {
+                return (char)('a' + i);
+            }
+        }
+
+        return 'a';
     }
 }
