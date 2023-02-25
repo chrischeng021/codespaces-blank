@@ -1,8 +1,6 @@
 package com.demo.algo.list;
 
-import com.demo.algo.entity.ListNode;
-
-import java.util.List;
+import com.demo.entity.ListNode;
 
 public class ListUtils {
     public static int getListLength(ListNode root) {

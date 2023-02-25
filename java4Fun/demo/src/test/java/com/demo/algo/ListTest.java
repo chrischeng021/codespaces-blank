@@ -1,10 +1,9 @@
 package com.demo.algo;
 
-import com.demo.algo.entity.ListNode;
+import com.demo.entity.ListNode;
 import com.demo.algo.list.ListUtils;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
 import static org.junit.Assert.assertEquals;
 public class ListTest {
     @Test

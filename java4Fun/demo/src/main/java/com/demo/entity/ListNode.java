@@ -1,4 +1,4 @@
-package com.demo.algo.entity;
+package com.demo.entity;
 
 import lombok.Data;
 
