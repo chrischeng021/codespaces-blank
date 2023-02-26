@@ -1,6 +1,7 @@
 package com.demo.algo;
 
 import com.demo.algo.array.ArrayUtils;
+import com.demo.algo.array.KthLargest;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 
@@ -23,5 +24,15 @@ public class ArrayTest {
     @Test
     public void testGenerateTriangle() {
         log.info("Result: {}.",ArrayUtils.generate(5));
+    }
+
+    @Test
+    public void testKthLargest() {
+        KthLargest kthLargest = new KthLargest(1, new int[]{});
+        System.out.println(kthLargest.add(-3));
+        System.out.println(kthLargest.add(-2));
+        System.out.println(kthLargest.add(-4));
+        System.out.println(kthLargest.add(0));
+        System.out.println(kthLargest.add(4));
     }
 }
